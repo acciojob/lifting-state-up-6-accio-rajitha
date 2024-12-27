@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TodoList from './TodoList';
 
 const App = () => {
@@ -9,13 +9,16 @@ const App = () => {
   ]);
 
   const handleComplete = (id) => {
-    setTodos(prevTodos => prevTodos.map(todo => {
-      if (todo.id === id) {
-        return { ...todo, completed: true };
-      }
-      return todo;
-    }));
+    setTodos(prevTodos => 
+      prevTodos.map(todo => 
+        todo.id === id ? { ...todo, completed: true } : todo
+      )
+    );
   };
+
+  useEffect(() => {
+    console.log("Todos updated:", todos);
+  }, [todos]);
 
   return (
     <div>
@@ -26,4 +29,3 @@ const App = () => {
 };
 
 export default App;
-
