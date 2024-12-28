@@ -6,9 +6,10 @@ const App = () => {
   const [todos, setTodos] = useState([
     { id: 1, task: 'Learn React', completed: false },
     { id: 2, task: 'Build a Todo App', completed: false },
-    { id: 3, task: 'Deploy to Heroku', completed: false },
+    { id: 3, task: 'Deploy to Heroku', completed: false }
   ]);
 
+  // Function to handle marking a todo as completed
   const handleComplete = (id) => {
     setTodos((prevTodos) =>
       prevTodos.map((todo) =>
@@ -19,7 +20,8 @@ const App = () => {
 
   return (
     <div>
-      <h1>Parent Component</h1> 
+      <h1>Todo List</h1>
+      {/* Passing state and handler function to child component */}
       <TodoList todos={todos} handleComplete={handleComplete} />
     </div>
   );
