@@ -1,27 +1,27 @@
 //App.js
-import React, { useState } from 'react';
-import TodoList from './TodoList';
+import React, { useState } from "react";
+import TodoList from "./TodoList";
 
 const App = () => {
   const [todos, setTodos] = useState([
-    { id: 1, task: 'Learn React', completed: false },
-    { id: 2, task: 'Build a Todo App', completed: false },
-    { id: 3, task: 'Deploy to Heroku', completed: false }
+    { id: 1, task: "Learn React", completed: false },
+    { id: 2, task: "Build a Todo App", completed: false },
+    { id: 3, task: "Deploy to Heroku", completed: false },
   ]);
 
-  // Function to handle marking a todo as completed
   const handleComplete = (id) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) =>
+    setTodos((prevTodos) => {
+      const updatedTodos = prevTodos.map((todo) =>
         todo.id === id ? { ...todo, completed: true } : todo
-      )
-    );
+      );
+      console.log("Updated Todos:", updatedTodos); // Debugging log
+      return updatedTodos;
+    });
   };
 
   return (
     <div>
       <h1>Todo List</h1>
-      {/* Passing state and handler function to child component */}
       <TodoList todos={todos} handleComplete={handleComplete} />
     </div>
   );
