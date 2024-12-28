@@ -1,13 +1,17 @@
 // TodoList.js
+
 import React from 'react';
 
 const TodoList = ({ todos, handleComplete }) => {
   return (
     <div>
-      <h2>Child Component</h2> 
+      <h2>Child Component</h2>
       <ul>
         {todos.map((todo) => (
-          <li key={todo.id}>
+          <li
+            key={todo.id}
+            style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
+          >
             {todo.task}
             {!todo.completed && (
               <button
