@@ -6,7 +6,7 @@ const App = () => {
   const [todos, setTodos] = useState([
     { id: 1, task: 'Learn React', completed: false },
     { id: 2, task: 'Build a Todo App', completed: false },
-    { id: 3, task: 'Deploy to Heroku', completed: false }
+    { id: 3, task: 'Deploy to Heroku', completed: false },
   ]);
 
   const handleComplete = (id) => {
@@ -19,7 +19,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>Todo List</h1>
+      <h1>Parent Component</h1> 
       <TodoList todos={todos} handleComplete={handleComplete} />
     </div>
   );
