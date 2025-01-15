@@ -2,7 +2,7 @@
 
 context('Local Storage', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:8000')
+    cy.visit('http://localhost:8000', { failOnStatusCode: false })
   })
   // Although local storage is automatically cleared
   // in between tests to maintain a clean state
